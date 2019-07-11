@@ -3,6 +3,6 @@ class PagesController < ApplicationController
   end
 
   def tables
-
+    @affichage = params[:vip]
   end
 end
