@@ -1,0 +1,30 @@
+<h1>Boissons</h1>
+
+<table class="table">
+
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Désignation</th>
+      <th scope="col">Prix</th>
+      <th scope="col">TVA</th>
+
+    </tr>
+
+  </thead>
+
+  <tbody>
+<% @boissons.each do |boisson| %>
+    <tr>
+
+      <th scope="row"><%= boisson.id %></th>
+      <td><%= boisson.nom %></td>
+      <td><%= boisson.prix %></td>
+      <td></td>
+    </tr>
+
+<% end %>
+
+
+  </tbody>
+</table>

@@ -1,0 +1,13 @@
+<h1>creer une table</h1>
+
+<%= form_for @table do |f| %>
+<div class="form-group">
+  <label>Numeros de la table</label>
+  <%= f.text_field :numeros, class: 'form-control' %>
+  <label>Nombre de couverts</label>
+  <%= f.text_field :numeros, class: 'form-control' %>
+</div>
+<div class="form-group">
+  <button type="submit" class="btn btn-primary">Creer la table</button>
+</div>
+<% end %>
