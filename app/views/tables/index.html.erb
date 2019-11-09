@@ -13,9 +13,10 @@
         <div class="card-body   ">
           <h5 class="card-title">Table <%= table.numeros %></h5>
 
-          <p class="card-text">Couverts: 4</p>
+          <p class="card-text">Couverts: <%= table.couverts %> </p>
           <a href="#" class="btn btn-sm btn-primary">Commande</a>
           <a class= "btn btn-sm btn-danger"<%= link_to "Supprimer", table_path(table), method: :delete, data: {confirm: "Etes-vous sure?"} %></a>
+
         </div>
       </div>
 

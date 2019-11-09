@@ -1,8 +1,7 @@
-<%= simple_form_for table, remote: true do |f| %>
-  <%= f.input :num, input_html: { id: 'text-input'}, label: 'numeros table' %>
-  <%= f.input :couverts, input_html: { id: 'description-input'}, label: 'nombre couverts'%>
+<%= simple_form_for table do |f| %>
+  <%= f.input :numeros, label: 'numeros table', error: 'rentrez un numeros de table' %>
+  <%= f.input :couverts, label: 'nombre couverts', error: 'nombre de couverts ?'%>
+ <%= f.button :submit %></button>
 
-  <%= f.button :button, class: 'btn btn-success btn-create d-flex align-items-center' do %>
-    Créer
-  <% end %>
-<% end %>
+ <% end %>
+

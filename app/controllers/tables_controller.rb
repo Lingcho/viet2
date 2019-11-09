@@ -7,33 +7,29 @@ class TablesController < ApplicationController
 
   def new
     @table = Table.new
-    @articles = Ingredient.all
+    @articles = Article.all
     @boissons = Boisson.all
   end
 
   def create
     @table = Table.new(table_params)
-    @commande = Commande.new
-    @articles = Ingredient.all
-    @boissons = Boisson.all
+    #@commande = Commande.new
+    #@articles = Article.all
+    #@boissons = Boisson.all
 
     if @table.save
-      respond_to do |format|
-        format.html { redirect_to table_path(@table) }
-        format.js
-      end
+      redirect_to tables_path
+
     else
-      respond_to do |format|
-        format.html { render :new }
-        format.js
-      end
+      render :new
+
     end
   end
 
   def show
     @table = Table.find(params[:id])
     @commande = Commande.new
-    @articles = Articles.all
+    @articles = Article.all
     @boissons = Boisson.all
   end
 
@@ -56,14 +52,11 @@ class TablesController < ApplicationController
     redirect_to tables_path
   end
 
-
 end
 
 private
 
-
   def table_params
-      table_params = params.require(:table).permit(:numeros, :couverts)
+      params.require(:table).permit(:numeros, :couverts)
   end
-
 

@@ -1,2 +1,8 @@
-<h1>Articles#show</h1>
-<p>Find me in app/views/articles/show.html.erb</p>
+<h1>Désignation :<%= @article.nom %></h1>
+
+<p>Nombre de couverts :<%= @article.nom %></p>
+<p>Payé : <%= @article.prixHT %> </p>
+
+<p>
+  <a href="<%= articles_path %>" class="btn btn-primary">Toutes les articles</a>
+</p>
