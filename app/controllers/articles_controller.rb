@@ -44,6 +44,6 @@ end
 private
 
   def article_params
-      params.require(:article).permit(:nom, :prixHT)
+      params.require(:article).permit(:designation, :prix)
   end
 

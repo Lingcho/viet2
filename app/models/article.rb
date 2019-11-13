@@ -1,4 +1,5 @@
 class Article < ApplicationRecord
-has_many :commandes
-has_many :tables, through: :commandes
+  has_and_belongs_to_many :commandes
+
+  validates :designation, uniqueness: true, presence: true
 end

@@ -1,0 +1,13 @@
+
+<div>
+
+  <%= simple_form_for commande do |f| %>
+    <%= f.input :numeros, label: 'numeros commande', error: 'rentrez un numeros de commande' %>
+    <%= f.input :couverts, label: 'nombre couverts', error: 'nombre de couverts ?'%>
+   <button type="button" class="btn btn-success"><%= f.button :submit %></button>
+
+
+   <% end %>
+
+
+</div>

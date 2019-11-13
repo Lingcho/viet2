@@ -1,38 +1,48 @@
 class CommandesController < ApplicationController
+  def index
+    @commandes = Commande.all
+  end
+
   def new
-    @table = Table.find(params[:table_id])
-    @commande = Dose.new
-    @article = Article.all
+    @commande = Commande.new
   end
 
   def create
-    @commande = Commande.new(commandes_params)
-    @table = Table.find(params[:table_id])
-    @commande.table = @table
-
+    @commande = Commande.new(commande_params)
     if @commande.save
-      respond_to do |format|
-        format.js
-      end
+      redirect_to commande_path(@commande)
     else
-      @article = Article.all
-      respond_to do |format|
-        format.js
-      end
+      render :new
     end
   end
 
-  def destroy
+  def edit
     @commande = Commande.find(params[:id])
-    @commande.destroy
-    respond_to do |format|
-        format.js
-    end
   end
 
-  private
+  def show
+    @commande = Commande.find(params[:id])
+    @articles = Article.all
 
-  def commandes_params
-    params.require('commande').permit(:num, :commande_id)
   end
+
+  def update
+    @commande = Commande.find(params[:id])
+
+    @commande.articles << Article.find_by(designation:params.require(:commande).permit(:articles)[:articles])
+    redirect_to commande_path(@commande)
+  end
+
+
 end
+
+private
+
+def commande_params
+  params.require(:commande).permit(:numeros, :table, :couverts, :statut, :payer)
+end
+def articles_add_params
+  params.require(:commande).permit(:articles)[:articles]
+
+end
+

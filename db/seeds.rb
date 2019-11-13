@@ -9,9 +9,7 @@
 puts "Nettoyage de la base ..."
 puts ">>>>>>>>>>>>>>>>>>>>>"
 Article.destroy_all
-Table.destroy_all
 Commande.destroy_all
-Boisson.destroy_all
 
 p ""
 p ""
@@ -21,84 +19,68 @@ p "..................................."
 p "..................................."
 p "..................................."
 
+
+commandes_test = [
+  {
+    numeros:  "1",
+    table: "2",
+    couverts: "2"
+  },
+  {
+    numeros:  "2",
+    table: "10",
+    couverts: "4"
+  },
+  {
+    numeros:  "3",
+    table: "3",
+    couverts: "10"
+  }
+]
+
+Commande.create(commandes_test)
+
 articles_test = [
   {
-    nom:      "Nems",
-    prixHT:   5.60
+    designation:      "Nems",
+    prix:   5.60
   },
   {
-    nom:      "Poulet",
-    prixHT:   8.80
+    designation:      "Poulet",
+    prix:   8.80
   },
   {
-    nom:      "Boeuf",
-    prixHT:   9.70
+    designation:      "Boeuf",
+    prix:   9.70
   },
   {
-    nom:      "Crevettes",
-    prixHT:   9.50
+    designation:      "Crevettes",
+    prix:   9.50
+  },
+  {
+    designation:      "Verre de vin",
+    prix:   2.60
+  },
+  {
+    designation:      "Meric",
+    prix:   16
+  },
+  {
+    designation:      "Ice Tea",
+    prix:   3
+  },
+  {
+    designation:      "Coca",
+    prix:   4
   }
+
 ]
 
 Article.create(articles_test)
 
-boissons_test = [
-  {
-    nom:      "Verre de vin",
-    prix:   2.60
-  },
-  {
-    nom:      "Meric",
-    prix:   16
-  },
-  {
-    nom:      "Ice Tea",
-    prix:   3
-  },
-  {
-    nom:      "Coca",
-    prix:   4
-  }
-]
-Boisson.create(boissons_test)
 
 
-tables_test = [
-  {
-    numeros: 3,
-    couverts: 5
-  },
 
-  {
-    numeros: 5,
-    couverts: 2
-  },
-
-  {
-    numeros: 7,
-    couverts: 4
-  }
-
-]
-
-Table.create(tables_test)
-
-commandes_test = [
-{
-  num: 1
-
-},
-{
-  num: 2
-
-},
-{
-  num: 3
-
-}
-
-]
-Commande.create(commandes_test)
 
 p "Création terminée"
 
