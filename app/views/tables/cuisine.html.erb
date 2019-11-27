@@ -1,0 +1,21 @@
+<h1>Cuisine</h1>
+
+
+<%@tables.each do |t|  %>
+<h1>
+<p>num: <%= t.nom %> couverts:  <%= t.couvert %></p>
+</h1>
+
+<p>entrées</p>
+<p><% t.articles.each do |a|%>
+
+<ul class="list-group">
+  <li class="list-group-item"><%=  a.designation%></li>
+</ul>
+
+  <% end %>
+</p>
+<% end %>
+
+
+

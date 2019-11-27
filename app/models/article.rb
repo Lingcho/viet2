@@ -1,5 +1,5 @@
 class Article < ApplicationRecord
-  has_and_belongs_to_many :commandes
+  has_many :tickets
+  has_many :tables, through: :tickets
 
-  validates :designation, uniqueness: true, presence: true
 end

@@ -10,37 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_10_172925) do
+ActiveRecord::Schema.define(version: 2019_11_17_011429) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "articles", force: :cascade do |t|
-    t.string "code"
     t.string "designation"
     t.integer "prix"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "commande_id"
-    t.index ["commande_id"], name: "index_articles_on_commande_id"
   end
 
-  create_table "articles_commandes", id: false, force: :cascade do |t|
-    t.bigint "article_id", null: false
-    t.bigint "commande_id", null: false
-    t.index ["article_id", "commande_id"], name: "index_articles_commandes_on_article_id_and_commande_id"
-    t.index ["commande_id", "article_id"], name: "index_articles_commandes_on_commande_id_and_article_id"
-  end
-
-  create_table "commandes", force: :cascade do |t|
-    t.string "numeros"
-    t.string "table"
-    t.boolean "statut"
-    t.boolean "payer"
+  create_table "tables", force: :cascade do |t|
+    t.string "nom"
+    t.integer "couvert"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "couverts"
   end
 
-  add_foreign_key "articles", "commandes"
+  create_table "tickets", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "table_id"
+    t.bigint "article_id"
+    t.index ["article_id"], name: "index_tickets_on_article_id"
+    t.index ["table_id"], name: "index_tickets_on_table_id"
+  end
+
+  add_foreign_key "tickets", "articles"
+  add_foreign_key "tickets", "tables"
 end

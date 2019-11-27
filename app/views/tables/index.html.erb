@@ -1,85 +1,29 @@
-<div class="container">
 
-  <h3>
-    Nombre de table: <%= @tables.count %>
-  </h3>
-  <a class="btn btn-warning"<%= link_to 'Ajouter une table', new_table_path %></a>
 
-  <hr class="my-2">
-    <div class="row text-center ">
-      <%  @tables.each do |table| %>
 
-      <div class="card mb-3" style="width: 8rem;" >
-        <div class="card-body   ">
-          <h5 class="card-title">Table <%= table.numeros %></h5>
+     <span class= "d-flex justify-content-center mb-3">
+       <a class= "btn btn-lg btn-primary" <%= link_to "Ajouter une table", new_table_path %><a>
+     </span>
 
-          <p class="card-text">Couverts: <%= table.couverts %> </p>
-          <a class= "btn btn-sm btn-success"<%= link_to "Commande", table_path(table) %><a>
-          <a class= "btn btn-sm btn-danger"<%= link_to "Supprimer", table_path(table), method: :delete, data: {confirm: "Etes-vous sure?"} %></a>
+<div class="card-group d-flex justify-content-center">
 
+      <% @tables.each do |table| %>
+      <div class="card " style="width: 5rem;">
+        <div class="card-body">
+          <a href= "<%= table_path(table)  %>" >T: <%= table.nom %></a>
+          <p class="card-text">C(s): <%= table.couvert %></p>
+        </div>
+        <div class="card-footer">
+          <%= link_to "Supprimer", table_path(table), method: :delete %>
         </div>
       </div>
+      <% end %>
 
 
-
-
-     <% end %>
-
-
-
-    </div>
 </div>
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-  <h1 class="display-4">Liste des Tables</h1>
-  <p class="lead">A faire ...</p>
-  <p>
-  <a href="<%= new_table_path %>" class="btn btn-success">Creer une table</a>
-</p>
-</div>
-
-<% @tables.each do |table| %>
-
-
-<div class="container">
-  <div class="card-deck mb-3 text-center">
-    <div class="card mb-4 shadow-sm">
-      <div class="card-header">
-        <h4 class="my-0 font-weight-normal">numeros de table: </h4>
-      </div>
-      <div class="card-body">
-        <h1 class="card-title pricing-card-title">$0 <small class="text-muted">/ mo</small></h1>
-        <ul class="list-unstyled mt-3 mb-4">
-          <li>10 users included</li>
-          <li>2 GB of storage</li>
-          <li>Email support</li>
-          <li>Help center access</li>
-        </ul>
-
-        <a href="<%= table_path(table.id) %>" class="btn btn-primary">Détails</a>
-        <a href="<%= edit_table_path(table.id) %>" class="btn btn-primary">Edit</a>
-        <a href="<%= edit_table_path(table.id) %>" class="btn btn-danger" data-confirm="Etes-vous sûre" data-method="DELETE">Supprimer</a>
-
-      </div>
-    </div>
-    </div>
-</div>
-<% end %> -->
 
 

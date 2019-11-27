@@ -1,0 +1,32 @@
+<h1>numéros de table :<%= @table.numeros %></h1>
+
+<p>Nombre de couverts :<%= @table.couverts %></p>
+<p>Payé : <%= @table.reglement ? "Déja payé" : "Non réglé" %> </p>
+
+ <div class="px-2">
+        <%= simple_form_for [@table, @commande] do |f| %>
+
+        <%= f.association :articles %>
+        <%= f.association :boisson %>
+        <%= f.submit "Ajouter"%>
+        <% end %>
+  </div>
+
+  <div class="card-text" style="width: 20rem;">
+        <% @table.commandes.each do |commande| %>
+        <p  >
+          <%=  commande.boisson.nom %> <i><%=  commande.num %></i>
+          <a <%= link_to " (modif)", edit_table_commande_path(commande)%><a>
+         <a <%= link_to " (suppr)", commande_path(commande), method: :delete, data: { confirm: "Are you sure?" } %><a>
+
+          <%=  commande.article.nom %> <i><%=  commande.num %></i>
+          <a <%= link_to " (modif)", edit_table_commande_path(commande)%><a>
+         <a <%= link_to " (suppr)", commande_path(commande), method: :delete, data: { confirm: "Are you sure?" } %><a>
+
+          <% end %>
+        </p>
+      </div>
+
+<p>
+  <a href="<%= tables_path %>" class="btn btn-primary">Toutes les tables</a>
+</p>

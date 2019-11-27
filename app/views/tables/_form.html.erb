@@ -1,7 +1,13 @@
-<%= simple_form_for table do |f| %>
-  <%= f.input :numeros, label: 'numeros table', error: 'rentrez un numeros de table' %>
-  <%= f.input :couverts, label: 'nombre couverts', error: 'nombre de couverts ?'%>
- <button type="button" class="btn btn-success"><%= f.button :submit %></button>
 
- <% end %>
+<div>
 
+  <%= simple_form_for @table do |f| %>
+    <%= f.input :nom, label: 'num table', error: 'rentrez un num de table' %>
+    <%= f.input :couvert, label: 'nombre couverts', error: 'nombre de couverts ?'%>
+   <button type="button" class="btn btn-success"><%= f.button :submit %></button>
+
+
+   <% end %>
+
+
+</div>

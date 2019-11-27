@@ -1,8 +1,7 @@
 class PagesController < ApplicationController
-  def home
-  end
+  def cuisine
+    @tables = Table.all
 
-  def tables
-    @affichage = params[:vip]
   end
 end
+
