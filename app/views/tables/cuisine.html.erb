@@ -2,6 +2,12 @@
 
 
 <%@tables.each do |t|  %>
+<% if !t.pret  %>
+<%= simple_form_for t do |f| %>
+
+<%= f.input_field :pret, as: :boolean, boolean_style: :inline%>
+<%= f.button  :submit, "Envoyé" %>
+<% end %>
 <h1>
 <p>num: <%= t.nom %> couverts:  <%= t.couvert %></p>
 </h1>
@@ -13,6 +19,7 @@
   <li class="list-group-item"><%=  a.designation%></li>
 </ul>
 
+  <% end %>
   <% end %>
 </p>
 <% end %>

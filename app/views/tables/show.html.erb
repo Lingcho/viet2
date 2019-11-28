@@ -1,5 +1,6 @@
 <div class="jumbotron">
 
+
   <h4 class="display-6">Table n°<%= @table.nom %> / Couverts:  <%= @table.couvert %> <%= @table.id %></h4>
   <p class="lead"><% @table.tickets.each do |ticket| %></p>
 
@@ -8,11 +9,11 @@
   <%= link_to ticket_path(ticket), method: :delete do %>
   <i class="fas fa-minus-circle"></i>
   <% end %>
+  <%end %>
 
-
- <%end %>
-
-
+    <div>
+      <%= @total_table%> <%= "€" %>
+    </div>
   <hr class="my-4">
 
   <%= simple_form_for [@table, @ticket]  do |f| %>

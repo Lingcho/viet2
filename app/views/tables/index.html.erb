@@ -11,7 +11,14 @@
       <div class="card " style="width: 5rem;">
         <div class="card-body">
           <a href= "<%= table_path(table)  %>" >T: <%= table.nom %></a>
+          <span><%= link_to table_path(table) do %>
+          <i class="fas fa-th"></i>
+          <% end %>
+          </span>
           <p class="card-text">C(s): <%= table.couvert %></p>
+          <p>Total : <%= calcul(table) %> €</p>
+
+          <p class="text-muted"><%= table.pret ?  "Terminée" : "En cours"  %></p>
         </div>
         <div class="card-footer">
           <%= link_to "Supprimer", table_path(table), method: :delete %>

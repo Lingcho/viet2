@@ -9,7 +9,6 @@ end
   def index
     @tables = Table.all
 
-
   end
 
   def new
@@ -41,11 +40,15 @@ end
     @articles = Article.all
     @ticket = Ticket.new
 
+
+    @total_table = calcul(@table)
+
   end
 
   def update
-
-
+    @table = Table.find(params[:id])
+    @table.update(tables_params)
+    redirect_to cuisine_path
 
   end
 
@@ -59,12 +62,26 @@ end
 
   end
 
+
+
+end
+
+def calcul(table)
+        total = table.articles.map do |article|
+          article.prix
+        end
+        total.sum
+end
+
+def fini(table)
+  table.pret = true
+  table.save
 end
 
 private
 
 def tables_params
-  params.require(:table).permit(:nom, :couvert, :statut, :id)
+  params.require(:table).permit(:nom, :couvert, :pret, :id)
 end
 
 
