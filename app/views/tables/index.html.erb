@@ -1,36 +1,37 @@
 
+<span class= "d-flex justify-content-center mb-3 fixed-bottom" style="font-size: 4rem;">
+  <%= link_to new_table_path do %>
+    <i class="fas fa-plus-circle"></i>
+    <% end %>
+</span>
 
-
-     <span class= "d-flex justify-content-center mb-3">
-       <a class= "btn btn-lg btn-primary" <%= link_to "Ajouter une table", new_table_path %><a>
-     </span>
-
-<div class="card-group d-flex justify-content-center">
-
-      <% @tables.each do |table| %>
-      <div class="card " style="width: 5rem;">
-        <div class="card-body">
-          <a href= "<%= table_path(table)  %>" >T: <%= table.nom %></a>
-          <span><%= link_to table_path(table) do %>
-          <i class="fas fa-th"></i>
-          <% end %>
-          </span>
-          <p class="card-text">C(s): <%= table.couvert %></p>
-          <p>Total : <%= calcul(table) %> €</p>
-
-          <p class="text-muted"><%= table.pret ?  "Terminée" : "En cours"  %></p>
-        </div>
-        <div class="card-footer">
-          <%= link_to "Supprimer", table_path(table), method: :delete %>
-        </div>
-      </div>
+  <div class="row">
+    <% @tables.each do |table| %>
+    <% if table.pret %>
+      <div class="card mb-2 mx-1 col-sm-6 col-md-3 bg-dark ">
+      <% else %>
+      <div class="card mb-2 mx-2 col-sm-6 col-md-3">
       <% end %>
+      <span class="card-delete d-flex justify-content-center"><%= link_to table_path(table), method: :delete do %>
+            <i class="far fa-times-circle"></i>
+            <% end %>
+            </span>
+            <div>
+              <a href= "<%= table_path(table) %>"><span class="far fa-list-alt " aria-hidden="true"></span> <%= table.nom %></a>
+              <span>
+                <i class="fas fa-clock"></i>
+                <%= table.created_at.strftime('%H:%M:%S')%>
+              </span>
+            </div>
+            <p class="card-text"><i class="fas fa-utensils"></i> <%= table.couvert %></p>
+            <p>Total : <%= calcul(table) %> €</p>
+
+            <p class="text-muted"><%= table.pret ?  "Terminée" : "En cours"  %></p>
 
 
-</div>
+          </div>
 
-
-
-
+  <% end %>
+  </div>
 
 

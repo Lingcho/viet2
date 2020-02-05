@@ -11,7 +11,7 @@
   </head>
   <body>
 
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <nav class="navbar navbar-expand-md navbar-dark  bg-dark fixed-top">
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -30,23 +30,25 @@
 
           <li class="nav-item">
             <a class="nav-link" href="<%= cuisine_path %>">Cuisines</a>
-          </li>
-
-
-
-
-        </ul>
+           </li>
+         </ul>
+        </div>
+      </nav>
+      <div class="space">
+        <h1>gfgfgg</h1>
       </div>
-    </nav>
 
-
-<div class="container" style="padding-top: 5rem;">
-   <%= yield %>
-
-
+<div class="container">
+  <%= yield %>
 </div>
 
 
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
   </body>

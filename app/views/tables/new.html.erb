@@ -1,5 +1,10 @@
-<h1>Nouvelle Table</h1>
 
 <%= render 'form', table: @table %>
 
-  <p><%= link_to 'Back to list', tables_path %></p>
+  <span class= "d-flex justify-content-center mb-3 fixed-top" style="font-size: 2rem">
+    <%= link_to tables_path do %>
+  <i class="fas fa-undo"></i>
+  <% end %>
+  </span>
+
+

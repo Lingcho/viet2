@@ -1,7 +1,17 @@
-<div class="jumbotron">
+
 
 
   <h4 class="display-6">Table n°<%= @table.nom %> / Couverts:  <%= @table.couvert %> <%= @table.id %></h4>
+
+
+
+
+
+ <% @articles.each do |a| %>
+
+<button type="button" class="test btn btn-<%= sample_b_color%>"><%= a.designation %></button>
+
+<% end %>
   <p class="lead"><% @table.tickets.each do |ticket| %></p>
 
 
@@ -9,7 +19,7 @@
   <%= link_to ticket_path(ticket), method: :delete do %>
   <i class="fas fa-minus-circle"></i>
   <% end %>
-  <%end %>
+  <% end %>
 
     <div>
       <%= @total_table%> <%= "€" %>
@@ -23,8 +33,27 @@
   <%= f.submit 'ajouter' %>
 
   <% end %>
+  </div>
 
   <a href="<%= tables_path %>" class="btn btn-primary">Retour</a>
 </div>
+
+  <style>
+
+    .is-loading { background: green; }
+
+  </style>
+
+
+    <div id="root">
+  <button :class= "{'is-loading': isLoading }" @click="toggleClass">
+
+    click me
+
+  </button>
+
+
+
+    </div>
 
 

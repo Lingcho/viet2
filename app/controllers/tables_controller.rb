@@ -66,6 +66,8 @@ end
 
 end
 
+
+
 def calcul(table)
         total = table.articles.map do |article|
           article.prix
